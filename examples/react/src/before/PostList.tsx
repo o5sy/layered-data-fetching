@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-// codegen이 생성했다고 가정 — 외부 API 스펙 그대로의 타입
+// 외부 API 스펙 그대로의 타입
 interface ApiPost {
   userId: number
   id: number
@@ -8,7 +8,7 @@ interface ApiPost {
   body: string
 }
 
-// API 타입이 곧 props 타입 — 중간 계층 없음
+// API 타입이 곧 props 타입
 function PostCard({ post }: { post: ApiPost }) {
   return (
     <div style={{ border: '1px solid #ccc', margin: '8px 0', padding: '12px' }}>
@@ -20,7 +20,7 @@ function PostCard({ post }: { post: ApiPost }) {
 }
 
 function PostList() {
-const [posts, setPosts] = useState<ApiPost[] | null>(null);
+  const [posts, setPosts] = useState<ApiPost[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
