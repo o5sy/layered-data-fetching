@@ -4,7 +4,7 @@ const BASE_URL = 'https://jsonplaceholder.typicode.com';
 
 export const apiFetcher = {
     // posts
-    posts: async () => {
+    posts: async (): Promise<PostResponse[]> => {
         const res = await fetch(`${BASE_URL}/posts`);
         if (!res.ok) {
             throw new Error(`Failed to fetch posts: ${res.statusText}`);
@@ -12,7 +12,7 @@ export const apiFetcher = {
         const data = await res.json();
         return data;
     },
-    postById: async (id: number) => {
+    postById: async (id: number): Promise<PostResponse> => {
         const res = await fetch(`${BASE_URL}/posts/${id}`);
         if (!res.ok) {
             throw new Error(`Failed to fetch post with id ${id}: ${res.statusText}`);
@@ -20,7 +20,7 @@ export const apiFetcher = {
         const data = await res.json();
         return data;
     },
-    createPost: async (post: CreatePostRequest) => {
+    createPost: async (post: CreatePostRequest): Promise<PostResponse> => {
         const res = await fetch(`${BASE_URL}/posts`, {
             method: 'POST',
             headers: {
@@ -34,7 +34,7 @@ export const apiFetcher = {
         const data = await res.json();
         return data;
     },
-    updatePost: async (postId: number, post: UpdatePostRequest) => {
+    updatePost: async (postId: number, post: UpdatePostRequest): Promise<PostResponse> => {
         const res = await fetch(`${BASE_URL}/posts/${postId}`, {
             method:'PUT',
             headers: {
@@ -48,7 +48,7 @@ export const apiFetcher = {
         const data = await res.json();
         return data;
     },
-    patchPost: async (postId: number, post: PatchPostRequest) => {
+    patchPost: async (postId: number, post: PatchPostRequest): Promise<PostResponse> => {
         const res = await fetch(`${BASE_URL}/posts/${postId}`,{
             method:'PATCH',
             headers: {
@@ -69,7 +69,6 @@ export const apiFetcher = {
         if (!res.ok) {
             throw new Error(`Failed to delete post with id ${postId}: ${res.statusText}`);
         }
-        return res;
     },
 
     // comments
