@@ -11,11 +11,10 @@ interface PostInput {
     body: string;
 }
 
-interface CreatePostRequest extends PostInput {}
+type CreatePostRequest = PostInput;
 
-interface UpdatePostRequest extends PostInput {}
+type UpdatePostRequest = PostInput;
 
-interface PatchPostRequest extends Partial<PostInput> {}
-
+type PatchPostRequest = Partial<PostInput>;
 
 export type { PostResponse, CreatePostRequest, UpdatePostRequest, PatchPostRequest };
