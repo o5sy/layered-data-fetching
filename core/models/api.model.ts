@@ -5,12 +5,17 @@ interface PostResponse {
     body: string;
 }
 
-interface UpdatePostRequest {
+interface PostInput {
     userId: number;
     title: string;
     body: string;
 }
 
-type PatchPostRequest = Partial<UpdatePostRequest>;
+interface CreatePostRequest extends PostInput {}
 
-export type { PostResponse, UpdatePostRequest, PatchPostRequest };
+interface UpdatePostRequest extends PostInput {}
+
+interface PatchPostRequest extends Partial<PostInput> {}
+
+
+export type { PostResponse, CreatePostRequest, UpdatePostRequest, PatchPostRequest };
