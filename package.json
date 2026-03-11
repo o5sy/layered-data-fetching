@@ -1,0 +1,17 @@
+{
+  "name": "layered-data-fetching",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "examples/*"
+  ],
+  "scripts": {
+    "dev:react": "npm run dev --workspace=examples/react",
+    "build:react": "npm run build --workspace=examples/react",
+    "preview:react": "npm run preview --workspace=examples/react"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

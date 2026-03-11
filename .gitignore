@@ -1,0 +1,32 @@
+# Dependencies
+node_modules
+**/node_modules
+
+# Build output
+dist
+build
+**/dist
+**/build
+
+# Vite
+**/.vite
+
+# TypeScript
+*.tsbuildinfo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Editor
+.DS_Store
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Logs
+*.log
+npm-debug.log*
