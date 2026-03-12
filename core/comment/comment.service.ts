@@ -1,16 +1,13 @@
 import { httpClientInstance } from '../http-client';
+import { CommentResponse } from './comment.type';
 
 export const commentService = {
-  commentsByPostId: async (postId: number) => {
-    const res = await httpClientInstance.get(`/posts/${postId}/comments`);
+  commentsByPostId: async (postId: number): Promise<CommentResponse[]> => {
+    const res = await httpClientInstance.get<CommentResponse[]>(`/posts/${postId}/comments`);
     return res;
   },
-  commentsById: async (comment: any) => {
-    const res = await httpClientInstance.post(`/comments`, comment);
-    return res;
-  },
-  commentById: async (commentId: number) => {
-    const res = await httpClientInstance.get(`/comments/${commentId}`);
+  commentById: async (commentId: number): Promise<CommentResponse> => {
+    const res = await httpClientInstance.get<CommentResponse>(`/comments/${commentId}`);
     return res;
   },
 };
