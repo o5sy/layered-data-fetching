@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 
 // 외부 API 스펙 그대로의 타입
 interface ApiPost {
-  userId: number
-  id: number
-  title: string
-  body: string
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
 }
 
 // API 타입이 곧 props 타입
@@ -16,7 +16,7 @@ function PostCard({ post }: { post: ApiPost }) {
       <p style={{ margin: '0 0 8px', color: '#555' }}>{post.body}</p>
       <small style={{ color: '#999' }}>by user {post.userId}</small>
     </div>
-  )
+  );
 }
 
 function PostList() {
@@ -45,13 +45,15 @@ function PostList() {
   }, []);
 
   if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>
+  if (error) return <div>Error: {error}</div>;
   if (!posts || posts.length === 0) return null;
   return (
     <div>
-      {posts.map((post) => <PostCard key={post.id} post={post} />)}
+      {posts.map((post) => (
+        <PostCard key={post.id} post={post} />
+      ))}
     </div>
-  )
+  );
 }
 
 export default function PostSection() {
@@ -60,5 +62,5 @@ export default function PostSection() {
       <h1>Posts (Before)</h1>
       <PostList />
     </div>
-  )
+  );
 }

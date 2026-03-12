@@ -12,6 +12,7 @@
     "preview:react": "npm run preview --workspace=examples/react"
   },
   "devDependencies": {
+    "prettier": "^3.8.1",
     "typescript": "^5.9.3"
   }
 }
