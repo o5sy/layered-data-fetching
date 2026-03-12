@@ -1,10 +1,5 @@
-import { httpClient, httpClientInstance } from '../http-client';
-import {
-  PostResponse,
-  CreatePostRequest,
-  UpdatePostRequest,
-  PatchPostRequest,
-} from '../models/api.model';
+import { httpClientInstance } from '../http-client';
+import { CreatePostRequest, PatchPostRequest, PostResponse, UpdatePostRequest } from './post.model';
 
 // 역할: 리소스별 요청 서비스
 // 책임: 요청 메소드 관리
