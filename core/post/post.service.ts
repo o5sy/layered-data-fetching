@@ -10,7 +10,6 @@ import {
 // 책임: 요청 메소드 관리
 // ! 테스트할 경우 목서비스를 생성하기 위해 타입 필요
 export const postService = {
-  // posts
   posts: async (): Promise<PostResponse[]> => {
     const res = await httpClientInstance.get<PostResponse[]>(`/posts`);
     return res;
