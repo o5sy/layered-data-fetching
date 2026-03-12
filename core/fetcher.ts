@@ -6,16 +6,9 @@ import {
   PatchPostRequest,
 } from './models/api.model';
 
-/**
- * 현 시점의 변경 가능성
- * - url, endpoint가 변경됐을 때 각 메소드 내부 수정
- * - http 요청 로직이 변경될 경우 각 메소드 내부 수정
- * - 공통 에러 처리가 변경되면 각각 수정해야함
- * - 인증 헤더가 추가되면 각각 추가해야함
- */
-
-type ApiService = typeof apiService;
-
+// 역할: 리소스별 요청 서비스
+// 책임: 요청 메소드 관리
+// ! 테스트할 경우 목서비스를 생성하기 위해 타입 필요
 export const apiService = {
   // posts
   posts: async (): Promise<PostResponse[]> => {

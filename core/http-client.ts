@@ -1,6 +1,7 @@
 import { RequestConfig } from './http.type';
 
-// http 요청 래퍼 객체
+// 역할: http 요청 팩토리
+// 책임: http 요청을 위한 인터페이스를 제공한다.
 export const httpClient = (baseUrl: string) => ({
   async get<T>(url: string) {
     return request<T>({ method: 'GET', url: `${baseUrl}${url}` });
@@ -19,9 +20,9 @@ export const httpClient = (baseUrl: string) => ({
   },
 });
 
-// 내부 구현 캡슐화
-// ! fetch 방식은 직접 수정만으로만 교체 가능
-// 공통 요청 로직 (에러 처리, 인증 헤더, 타임아웃, 로깅 등)
+// 역할: HTTP 요청 실행
+// 책임: fetch 호출, 오류 처리, JSON 파싱
+// !취약점 fetch 방식은 직접 수정만으로만 교체 가능 (axios, next/fetch로 변경 가능성이 있다면 어댑터 추가 고려)
 async function request<T>(config: RequestConfig): Promise<T> {
   try {
     const res = await fetch(config.url, {
@@ -42,7 +43,8 @@ async function request<T>(config: RequestConfig): Promise<T> {
   }
 }
 
-// 인스턴스화
 const BASE_URL = 'https://jsonplaceholder.typicode.com';
 
+// 역할: HTTP 요청 인스턴스
+// 책임: BASE_URL 바인딩, 인스턴스화
 export const httpClientInstance = httpClient(BASE_URL);
