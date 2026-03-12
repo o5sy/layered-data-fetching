@@ -1,5 +1,5 @@
 import { httpClientInstance } from '../http-client';
-import { CommentResponse } from './comment.type';
+import { CommentResponse } from './comment.model';
 
 export const commentService = {
   commentsByPostId: async (postId: number): Promise<CommentResponse[]> => {
