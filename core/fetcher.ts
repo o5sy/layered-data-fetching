@@ -1,5 +1,12 @@
 import { PostResponse, CreatePostRequest, UpdatePostRequest, PatchPostRequest } from "./models/api.model";
 
+/**
+ * 현 시점의 변경 가능성
+ * - url, endpoint가 변경됐을 때 각 메소드 내부 수정
+ * - http 요청 로직이 변경될 경우 각 메소드 내부 수정
+ * - 공통 에러 처리가 변경되면 각각 수정해야함
+ * - 인증 헤더가 추가되면 각각 추가해야함
+ */
 const BASE_URL = 'https://jsonplaceholder.typicode.com';
 
 export const apiFetcher = {
